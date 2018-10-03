@@ -13,9 +13,7 @@ RUN groupadd -g ${GROUP_ID} dogecoin \
 
 ENV DOGECOIN_VERSION=1.10.0
 
-RUN curl -O https://github.com/dogecoin/dogecoin/releases/download/v1.10.0/dogecoin-${DOGECOIN_VERSION}-linux64.tar.gz \
-  && tar --strip=2 -xzf *.tar.gz -C /usr/local/bin \
-  && rm *.tar.gz
+RUN curl -sL https://github.com/dogecoin/dogecoin/releases/download/v${DOGECOIN_VERSION}/dogecoin-${DOGECOIN_VERSION}-linux64.tar.gz | tar xz --strip=2 -C /usr/local/bin
 
 ADD ./bin /usr/local/bin
 RUN chmod +x /usr/local/bin/doge_oneshot
