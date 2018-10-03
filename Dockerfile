@@ -9,7 +9,8 @@ RUN groupadd -g ${GROUP_ID} dogecoin \
   && useradd -u ${USER_ID} -g dogecoin -s /bin/bash -m -d /dogecoin dogecoin \
   && set -x \
   && apt-get update -y \
-  && apt-get install -y curl gosu
+  && apt-get install -y curl gosu \
+  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV DOGECOIN_VERSION=1.10.0
 
