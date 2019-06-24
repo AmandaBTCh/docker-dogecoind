@@ -1,4 +1,4 @@
-# docker-litecoind
+# docker-dogecoind
 Docker Image for Dogecoin
 
 ### Quick Start
@@ -29,4 +29,9 @@ docker logs -f dogecoind-node
 Auto Installation
 ```
 sudo bash -c "$(curl -L https://git.io/fxICW)"
+```
+
+Auto Update utility
+```
+sudo bash -c "$(curl -L https://git.io/fjrqV)"
 ```

@@ -1,4 +1,4 @@
-FROM debian:stable-slim
+FROM bitsler/wallet-base:latest
 
 ENV HOME /dogecoin
 
@@ -12,9 +12,9 @@ RUN groupadd -g ${GROUP_ID} dogecoin \
   && apt-get install -y curl gosu \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ENV DOGECOIN_VERSION=1.10.0
+ENV DOGECOIN_VERSION=1.14.0
 
-RUN curl -sL https://github.com/dogecoin/dogecoin/releases/download/v${DOGECOIN_VERSION}/dogecoin-${DOGECOIN_VERSION}-linux64.tar.gz | tar xz --strip=2 -C /usr/local/bin
+RUN curl -sL https://github.com/dogecoin/dogecoin/releases/download/v${DOGECOIN_VERSION}/dogecoin-${DOGECOIN_VERSION}-x86_64-linux-gnu.tar.gz | tar xz --strip=2 -C /usr/local/bin
 
 ADD ./bin /usr/local/bin
 RUN chmod +x /usr/local/bin/doge_oneshot
